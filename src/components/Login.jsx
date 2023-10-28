@@ -1,19 +1,12 @@
-
-import { Navigate, Route, Routes } from 'react-router-dom';
-import './App.css';
-import React, { useState } from "react";
+import React, {useState} from "react"
+import database from '../records.json';
 import ReactDOM from "react-dom";
-import AdminDashboard from "./components/AdminDashboard";
-import database from './records.json';
-import UserDashboard from './components/UserDashboard'
+import '././../App.css';
 
-// import { Login } from './components/Login';
-
-function App() {
-  
+export const Login = () => 
+{
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isAdmin, setisAdmin] = useState("user");
 
   const errors = {
     uname: "invalid username",
@@ -28,11 +21,7 @@ function App() {
     
     // Find user login info
     const userData = database.find((user) => user.Name === uname.value);
-    const Admin = database.find((user) => user.Role ==="admin");
-    if(Admin)
-    {
-      setisAdmin("admin");
-    }
+    
     // Compare user info
     if (userData) {
       
@@ -54,9 +43,10 @@ function App() {
       <div className="error">{errorMessages.message}</div>
     );
 
-  // JSX code for login form
-  const renderForm = (
-    <div className="form">
+  return (
+    <>
+   const renderForm = (
+    <div className="login-form">
       <form onSubmit={handleSubmit}>
         <div className="input-container">
           <label>Username </label>
@@ -74,22 +64,6 @@ function App() {
       </form>
     </div>
   );
-
-
-  const [currentForm, setCurrentForm] = useState('login');
-
-  return (
-    <div className="app">
-    <div className="login-form">
-    
-      <div className="title">Sign In</div>
-      
-      {/* {isSubmitted  && isAdmin === "admin" ? <div><AdminDashboard/></div> : renderForm} */}
-      {isSubmitted  && isAdmin === "user" ? <div><UserDashboard/></div> : renderForm}
-      
-    </div>
-  </div>
-     );
+    </>
+  )
 }
-
-export default App;

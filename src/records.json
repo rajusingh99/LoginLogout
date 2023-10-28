@@ -1,0 +1,24 @@
+
+[
+    
+    {   "id" : 1,
+       "Name" :"Raju Singh",
+       "Email" : "raju@gmail.com",
+       "pass" : "Raju123",
+       "Role": "admin"
+    },
+    {
+        "id" : 2,
+        "Name" :"Mahesh sharma",
+        "Email" : "mahesh@gmail.com",
+        "pass" : "mahesh123",
+        "Role": "user"
+    },
+    {
+        "id" : 3,
+        "Name" :"Avish Arora",
+        "Email" : "arora@gmail.com",
+        "pass" : "Avish123",
+        "Role": "user"
+    }
+]
